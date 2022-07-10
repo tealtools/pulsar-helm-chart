@@ -788,9 +788,7 @@ broker:
   service_account:
     annotations: {}
   securityContext:
-    readOnlyRootFilesystem: false
-    fsGroup: 0
-    fsGroupChangePolicy: "OnRootMismatch"
+  podSecurityContext:
 
 ## Pulsar: Functions Worker
 ## templates/function-worker-configmap.yaml

@@ -253,6 +253,10 @@ spec:
         securityContext:
 {{ toYaml .Values.broker.securityContext | indent 10 }}
         {{- end }}
+        {{- if .Values.broker.podSecurityContext }}
+        securityContext:
+{{ toYaml .Values.broker.podSecurityContext | indent 8 }}
+        {{- end }}
       volumes:
       {{- if .Values.broker.extraVolumes }}
 {{ toYaml .Values.broker.extraVolumes | indent 6 }}
