@@ -787,6 +787,10 @@ broker:
   ## templates/broker-service-account.yaml
   service_account:
     annotations: {}
+  securityContext:
+    readOnlyRootFilesystem: false
+    fsGroup: 0
+    fsGroupChangePolicy: "OnRootMismatch"
 
 ## Pulsar: Functions Worker
 ## templates/function-worker-configmap.yaml
