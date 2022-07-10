@@ -120,10 +120,10 @@ spec:
             {{- end }}
               echo "pulsar cluster {{ template "pulsar.cluster.name" . }} isn't initialized yet ... check in 3 seconds ..." && sleep 3;
             done;
-      {{- if .Values.broker.securityContext }}
-      securityContext:
-{{ toYaml .Values.broker.securityContext | indent 8 }}
-      {{- end }}
+        {{- if .Values.broker.securityContext }}
+        securityContext:
+{{ toYaml .Values.broker.securityContext | indent 10 }}
+        {{- end }}
         volumeMounts:
         {{- include "pulsar.broker.certs.volumeMounts" . | nindent 8 }}
       # This init container will wait for bookkeeper to be ready before
@@ -151,10 +151,10 @@ spec:
         envFrom:
           - configMapRef:
               name: "{{ template "pulsar.fullname" . }}-{{ .Values.bookkeeper.component }}"
-      {{- if .Values.broker.securityContext }}
-      securityContext:
-{{ toYaml .Values.broker.securityContext | indent 8 }}
-      {{- end }}
+        {{- if .Values.broker.securityContext }}
+        securityContext:
+{{ toYaml .Values.broker.securityContext | indent 10 }}
+        {{- end }}
         volumeMounts:
         {{- include "pulsar.broker.certs.volumeMounts" . | nindent 10 }}
       containers:
@@ -249,10 +249,10 @@ spec:
 {{ toYaml .Values.broker.extraVolumeMounts | indent 10 }}
           {{- end }}
           {{- include "pulsar.broker.certs.volumeMounts" . | nindent 10 }}
-      {{- if .Values.broker.securityContext }}
-      securityContext:
-{{ toYaml .Values.broker.securityContext | indent 8 }}
-      {{- end }}
+        {{- if .Values.broker.securityContext }}
+        securityContext:
+{{ toYaml .Values.broker.securityContext | indent 10 }}
+        {{- end }}
       volumes:
       {{- if .Values.broker.extraVolumes }}
 {{ toYaml .Values.broker.extraVolumes | indent 6 }}
