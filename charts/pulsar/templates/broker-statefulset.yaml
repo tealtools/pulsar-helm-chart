@@ -252,6 +252,7 @@ spec:
       {{- if .Values.broker.securityContext }}
       securityContext:
 {{ toYaml .Values.broker.securityContext | indent 8 }}
+      {{- end }}
       volumes:
       {{- if .Values.broker.extraVolumes }}
 {{ toYaml .Values.broker.extraVolumes | indent 6 }}
